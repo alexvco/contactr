@@ -1,62 +1,28 @@
 class ContactsController < ApplicationController
 
 
-
-
-
-
-
-
-
-
-
-
-
   # GET /contacts/new
   def new
     @contact = Contact.new
   end
 
 
-
-
-
   # POST /contacts
   # POST /contacts.json
   def create
     @contact = Contact.new(contact_params)
-
-    respond_to do |format|
       if @contact.save
-        redirect_to contact_saved_path, notice: 'Message was successfully sent. We will get back to you as soon as possible' 
+        ContactMailer.welcome_email(@contact).deliver
+        redirect_to new_contact_path, notice: 'Message was successfully sent. We will get back to you as soon as possible' 
       else
         render :new 
       end
-    end
   end
+
 
 
   def contact_saved
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

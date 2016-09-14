@@ -26,9 +26,9 @@ module Contactr
     config.action_mailer.smtp_settings = {
       address:              "smtp.gmail.com",
       port:                 587,
-      domain:               'example.com',
-      user_name:            ENV["SENDINBLUE_USERNAME"],
-      password:             ENV["SENDINBLUE_KEY"],
+      domain:               'mail.google.com',
+      user_name:            "me@gmail.com",
+      password:             "me",
       authentication:       :plain,
       enable_starttls_auto: true 
     }
